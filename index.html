@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>fsociety Blog</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+  body {
+    background: #121212;
+    color: #ddd;
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0; 
+    padding: 3rem 1.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  section.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h1, h2 {
+    color: #eee;
+    user-select: none;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  h1::after,
+  h2::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 30px;
+    background: #ccc;
+    margin: 0.5rem auto 0 auto;
+    border-radius: 2px;
+    animation: growBar 2s ease forwards;
+  }
+
+  @keyframes growBar {
+    from { width: 0; }
+    to { width: 30px; }
+  }
+
+  #intro {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #intro p {
+    margin-top: 2rem;
+    opacity: 0;
+  }
+
+  #intro img {
+    margin-top: 2rem;
+    width: 20%;
+    max-width: 700px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #members h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  #members .gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  #members .member {
+    flex: 1 1 calc(20% - 1rem);
+    max-width: calc(20% - 1rem);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  #members .member.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #members .member img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #888;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #members .caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+
+  #mrrobot h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #bbb;
+    width: 0;
+    margin-left: auto;
+    margin-right: auto;
+    animation: typing 3.5s steps(20) forwards;
+  }
+
+  #mrrobot p {
+    font-style: italic;
+    color: #aaa;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInText 6s forwards;
+    animation-delay: 3.5s;
+  }
+
+  @keyframes fadeInText {
+    to { opacity: 1; }
+  }
+
+  @keyframes typing {
+    to { width: 17ch; }
+  }
+
+  @keyframes growBar {
+    from { width: 0; }
+    to { width: 30px; }
+  }
+
+  @media (max-width: 900px) {
+    #members .member {
+      flex: 1 1 calc(33% - 1rem);
+      max-width: calc(33% - 1rem);
+    }
+  }
+
+  @media (max-width: 600px) {
+    #members .member {
+      flex: 1 1 calc(50% - 1rem);
+      max-width: calc(50% - 1rem);
+    }
+  }
+
+  @media (max-width: 400px) {
+    #members .member {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section id="intro" class="active">
+  <h1>fsociety</h1>
+  <p id="intro-text">fsociety, also known as fuck society, is the name of a hacker group based in Coney Island, New York, led by the mysterious Mr. Robot. Its name is a play on both the derelict amusement park building in which it has its headquarters, and their message: "fuck society".</p>
+  <img src="https://c.tenor.com/3ItiA2urMygAAAAC/tenor.gif" alt="fsociety" />
+</section>
+
+<section id="members">
+  <h2>Members</h2>
+  <div class="gallery">
+    <div class="member"><img src="https://visualpharm.com/assets/192/Fsociety%20Mask-595b40b75ba036ed117d5ff3.svg" alt="Elliot Alderson"/><div class="caption">samsepi0l</div></div>
+    <div class="member"><img src="https://visualpharm.com/assets/192/Fsociety%20Mask-595b40b75ba036ed117d5ff3.svg" alt="Mr. Robot"/><div class="caption">tr3nt0n</div></div>
+    <div class="member"><img src="https://visualpharm.com/assets/192/Fsociety%20Mask-595b40b75ba036ed117d5ff3.svg" alt="Darlene"/><div class="caption">m0bl3y</div></div>
+    <div class="member"><img src="https://visualpharm.com/assets/192/Fsociety%20Mask-595b40b75ba036ed117d5ff3.svg" alt="Dom DiPierro"/><div class="caption">rom3r0</div></div>
+    <div class="member"><img src="https://visualpharm.com/assets/192/Fsociety%20Mask-595b40b75ba036ed117d5ff3.svg" alt="Angela Moss"/><div class="caption">D0l0r3sH4z3</div></div>
+  </div>
+</section>
+
+<section id="mrrobot">
+  <h2>Who Is Mr.Robot?</h2>
+  <p>Mr. Robot is an American drama thriller television series created by Sam Esmail for USA Network. It stars Rami Malek as Elliot Alderson, a cybersecurity engineer and hacker with social anxiety disorder, clinical depression, and dissociative identity disorder. Elliot is recruited by an insurrectionary anarchist known as "Mr. Robot", played by Christian Slater, to join a group of hacktivists called "fsociety". The group aims to destroy all debt records by encrypting the financial data of E Corp, the largest conglomerate in the world. </p>
+</section>
+
+<script>
+  const introSection = document.getElementById('intro');
+  const introText = document.getElementById('intro-text');
+  const introImage = introSection.querySelector('img');
+  const membersSection = document.getElementById('members');
+  const membersTitle = membersSection.querySelector('h2');
+  const members = membersSection.querySelectorAll('.member');
+  const mrRobotSection = document.getElementById('mrrobot');
+  const mrRobotTitle = mrRobotSection.querySelector('h2');
+  const mrRobotText = mrRobotSection.querySelector('p');
+
+  const originalText = introText.textContent;
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function animateShuffleFadeIn(textElement, text, duration = 4000) {
+    return new Promise(resolve => {
+      let frameRate = 30;
+      let frames = duration / (1000 / frameRate);
+      let currentFrame = 0;
+      let shuffled = [...text];
+      shuffle(shuffled);
+
+      let interval = setInterval(() => {
+        let progress = currentFrame / frames;
+        if (progress >= 1) {
+          textElement.textContent = text;
+          textElement.style.opacity = '1';
+          clearInterval(interval);
+          resolve();
+          return;
+        }
+
+        let displayChars = shuffled.map((char, idx) => {
+          if (idx / text.length < progress) return text[idx];
+          else return shuffled[idx];
+        });
+
+        textElement.textContent = displayChars.join('');
+        textElement.style.opacity = progress;
+        currentFrame++;
+      }, 1000 / frameRate);
+    });
+  }
+
+  function fadeInImage(image) {
+    return new Promise(resolve => {
+      image.style.opacity = '1';
+      image.style.transform = 'scale(1)';
+      setTimeout(() => resolve(), 1500);
+    });
+  }
+
+  function fadeInMembers() {
+    return new Promise(resolve => {
+      membersTitle.style.opacity = '1';
+      membersTitle.style.transition = 'opacity 0.5s ease';
+      let delay = 500;
+      members.forEach((member, i) => {
+        setTimeout(() => {
+          member.classList.add('visible');
+          if (i === members.length -1) {
+            setTimeout(() => resolve(), 500);
+          }
+        }, delay * i);
+      });
+    });
+  }
+
+  function fadeInMrRobot() {
+    return new Promise(resolve => {
+      mrRobotSection.classList.add('active');
+      setTimeout(() => {
+        mrRobotText.style.opacity = '1';
+        resolve();
+      }, 3500 + 6000); 
+    });
+  }
+
+  async function runAnimations() {
+    await animateShuffleFadeIn(introText, originalText, 4000);
+    await fadeInImage(introImage);
+    introSection.classList.add('active');
+
+    await new Promise(r => setTimeout(r, 5000));
+
+    membersSection.classList.add('active');
+    await fadeInMembers();
+
+    await new Promise(r => setTimeout(r, 5000));
+
+    mrRobotTitle.style.animation = 'typing 3.5s steps(20) forwards';
+    await fadeInMrRobot();
+  }
+
+  runAnimations();
+</script>
+
+</body>
+</html>
